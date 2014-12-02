@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Nonejas</title>
+          <meta charset="utf-8">
+          <link rel="stylesheet" href="css/style.css" type="text/css">
+          <link rel="stylesheet" href="css/foundation.css">
+
+          <!-- This is how you would link your custom stylesheet -->
+          <link rel="stylesheet" href="css/app.css">
+          <script src="js/js/vendor/modernizr.js"></script>
+          <script src="js/js/vendor/jquery.js"></script>
+          <script src="js/js/vendor/fastclick.js"></script>
+          <script src="js/js/foundation.min.js"></script>
+        
+    </head>
+    <body>
+        <h1>Juego de las parejas</h1>
+        <h1><a href="#" data-reveal-id="myModal" class="radius button">Información</a></h1>
+
+            <div id="myModal" class="reveal-modal" data-reveal>
+              <h2>Información</h2>
+              <p>Encuentra las parejas!!</p>
+              <p>Trata de encontrar las parejas de imágenes hasta mostrarlas todas.</p>
+              <p>Tienes 20 intentos antes de que pierdas la partida.</p>
+              <a class="close-reveal-modal">&#215;</a>
+            </div>
+        <div class="row">
+            <div class="large-10 large-centered columns">
+                <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+                      <li><img src="images/0.jpg" id="0"/></li>
+                      <li><img src="images/0.jpg" id="1"/></li>
+                      <li><img src="images/0.jpg" id="2"/></li>
+                      <li><img src="images/0.jpg" id="3"/></li>
+                      <li><img src="images/0.jpg" id="4"/></li>
+                      <li><img src="images/0.jpg" id="5"/></li>
+                      <li><img src="images/0.jpg" id="6"/></li>
+                      <li><img src="images/0.jpg" id="7"/></li>
+                      <li><img src="images/0.jpg" id="8"/></li>
+                      <li><img src="images/0.jpg" id="9"/></li>
+                      <li><img src="images/0.jpg" id="10"/></li>
+                      <li><img src="images/0.jpg" id="11"/></li>
+                      
+                </ul>
+            </div>
+        </div>
+        <script>
+            $(document).foundation();
+        </script>
+        <script src="js/parejas.js"></script>
+    </body>
+</html>

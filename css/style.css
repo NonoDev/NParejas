@@ -1,0 +1,31 @@
+
+h1
+{
+    text-align: center;
+    color: #fff;
+}
+
+.columns
+{
+    padding: 10px;
+    
+}
+
+img
+{
+    box-shadow: 0 0 5px #2fa7ff;
+    -webkit-transition: all 0.3s ease-in-out;/* Safari 3.2+, Chrome */
+	-moz-transition: all 0.3s ease-in-out;/* Firefox 4-15 */
+	-o-transition: all 0.3s ease-in-out;/* Opera 10.5-12.00 */
+	transition: all 0.53 ease-in-out;/* Firefox 16+, Opera 12.50+ */
+}
+
+img:hover
+{
+    -moz-transform: scale(1.1, 1.1);/* FF3.5+ */
+    -webkit-transform: scale(1.1, 1.1) ;/*Saf3.1+, Chrome*/
+    -o-transform: scale(1.1, 1.1);/* Opera 10.5 */
+    -ms-transform: scale(1.1, 1.1);/* IE 9 */
+    transform: scale(1.1, 1.1);   
+}
+
