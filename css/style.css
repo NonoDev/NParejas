@@ -29,3 +29,7 @@ img:hover
     transform: scale(1.1, 1.1);   
 }
 
+#reiniciar{
+    margin-left: 10px;   
+    border-radius: 3px;
+}
