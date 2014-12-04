@@ -14,8 +14,16 @@ console.log("Variables inicializadas");
 //console.log(cantidadImagenes);
 
 window.onload = function(){
-    // Creo las posiciones del array
+    crearRepetidos();
+    //console.log(contadorPosiciones);
+    //console.log(arrayPosiciones);
+    console.log("Generados los repetidos");
+    addEventos(arrayPosiciones);
+}
+
+function crearRepetidos(){
     var contadorPosiciones = 0;
+    // Creo las posiciones del array
     while(contadorPosiciones < cantidadImagenes*2){
         var ponerImagen = Math.floor((Math.random() * cantidadImagenes)); // variable para poner las posiciones de las imágenes aleatorias
         var contadorRepetidas = 0; // variable que cuenta los repetidos en el array
@@ -27,10 +35,6 @@ window.onload = function(){
             contadorPosiciones++;
         }
     }
-    //console.log(contadorPosiciones);
-    //console.log(arrayPosiciones);
-    console.log("Generados los repetidos");
-    addEventos(arrayPosiciones);
 }
 
 // Recojo el valor de la imagen en la que se hace click y la cambio para comparar las parejas
@@ -45,7 +49,6 @@ function cambiarImagenes(valor, arrayImagenes){
         imagenElegida = arrayPosiciones[casillaID];
         var anteriorIMG = document.getElementById(anterior);
         casillaIMG.setAttribute('src', arrayImagenes[imagenElegida]);
-        casillaIMG.setAttribute('name', 'cambiada');
         // Si es diferente a la anterior, vuelvo a poner la imagen inicial tras 1 segundo
         if(arrayPosiciones[casillaID]!=arrayPosiciones[anterior]){
             contadorFallos++;   
@@ -62,7 +65,6 @@ function cambiarImagenes(valor, arrayImagenes){
         anterior = casillaID;
         imagenElegida = arrayPosiciones[casillaID];
         casillaIMG.setAttribute('src', arrayImagenes[imagenElegida]);
-        casillaIMG.setAttribute('name', 'cambiada');
         //console.log('AnteriorIMG: ' + anteriorIMG);
         contadorPruebas++;
     }
@@ -80,25 +82,31 @@ function addEventos(listaId){
 
 // Funcion que comprueba que se ha terminado el juego
 function terminar(){
-    for(var x = 0; x < lista.length; x++){
-        
-//        if(lista[x].name == 'cambiada' && lista[x].name != ''){
-//            //final = true;
-//            console.log('No fin');
-//        }else{
-//            //final = false; 
-//           // alert('Fin');
-//            console.log('fin');
-//        }
-        //console.log(lista[0].src);
+    var imagen0 = "";
+    var comprobar = 0;
+    var alerta = document.getElementById('alerta');
+    for(var j = 0; j < lista.length; j++){
+        imagen0 = lista[j].src.substring(80);
+        console.log(imagen0);
+        if(imagen0!=='images/0.jpg'){
+            comprobar++;
+            if(comprobar == lista.length){
+                alerta.innerHTML = "<div data-alert class='alert-box success radius'>Has ganado el juego con "+contadorFallos+" fallos<a href='#' class='close'>&times;</a></div>";
+                comprobar = 0;
+            }
+        }
+
 }
+    console.log(contadorFallos);
+    console.log(contadorAciertos);
 }
 
 // Funcion que reinicia el juego
 function reiniciar(){
     for(var i = 0; i < lista.length; i++){
         lista[i].setAttribute('src', 'images/0.jpg');   
-        contadorAciertos = 0;
-        contadorFallos = 0;
     }
+    contadorAciertos = 0;
+    contadorFallos = 0;
+    crearRepetidos();
 }

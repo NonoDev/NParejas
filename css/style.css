@@ -33,3 +33,9 @@ img:hover
     margin-left: 10px;   
     border-radius: 3px;
 }
+
+#alerta{
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+}
