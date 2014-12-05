@@ -9,6 +9,7 @@ var cantidadImagenes = arrayImagenes.length;
 var arrayPosiciones = new Array(cantidadImagenes);
 var lista = document.getElementsByTagName('img'); 
 var final = false;
+var alerta = document.getElementById('alerta');
 
 console.log("Variables inicializadas");
 //console.log(cantidadImagenes);
@@ -69,6 +70,7 @@ function cambiarImagenes(valor, arrayImagenes){
         contadorPruebas++;
     }
     terminar();
+    mostrarDatos();
 }
 
 // Añado los eventos onclick a todas las imagenes
@@ -84,14 +86,14 @@ function addEventos(listaId){
 function terminar(){
     var imagen0 = "";
     var comprobar = 0;
-    var alerta = document.getElementById('alerta');
+    
     for(var j = 0; j < lista.length; j++){
         imagen0 = lista[j].src.substring(80);
         console.log(imagen0);
         if(imagen0!=='images/0.jpg'){
             comprobar++;
             if(comprobar == lista.length){
-                alerta.innerHTML = "<div data-alert class='alert-box success radius'>Has ganado el juego con "+contadorFallos+" fallos<a href='#' class='close'>&times;</a></div>";
+                alerta.innerHTML = "<div data-alert class='alert-box success radius'><strong>Enhorabuena!! Has ganado el juego con "+contadorFallos+" fallos!!</strong><a href='#' class='close'>&times;</a></div>";
                 comprobar = 0;
             }
         }
@@ -109,4 +111,17 @@ function reiniciar(){
     contadorAciertos = 0;
     contadorFallos = 0;
     crearRepetidos();
+    alerta.innerHTML = "";
+}
+
+// Funcion para mostrar los datos en el panel lateral
+function mostrarDatos(){
+    var idFallos = document.getElementById('fallos');
+    if(contadorFallos < 7){
+        idFallos.innerHTML = contadorFallos;
+    }if (contadorFallos >= 7){
+        idFallos.innerHTML = '<font color="red">'+contadorFallos+'</font>';
+    }if(contadorFallos == 10){
+        alerta.innerHTML = "<div data-alert class='alert-box alert radius'><strong>Vaya!! Has llegado a "+contadorFallos+" fallos, has perdido!!</strong><a href='#' class='close'>&times;</a></div>";
+    }
 }
